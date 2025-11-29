@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-// Import the image from your assets folder
-// Assuming structure is src/pages/Login.tsx and src/assets/bgimage.jpg
 import bgImage from '../assets/bgimage.jpg';
 
 export default function Login() {
@@ -35,22 +33,20 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-black relative flex items-center justify-center">
+    // FIX: Increased padding-x (px-6) to ensure the box doesn't touch screen edges on mobile
+    <div className="min-h-screen bg-black relative flex items-center justify-center px-6">
       
-      {/* BACKGROUND IMAGE CONTAINER */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          // Use the imported variable inside `url(...)`
           backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.5, // Darkens the image so text is readable
+          opacity: 0.5,
         }}
       />
 
-      {/* LOGIN FORM CONTAINER */}
-      <div className="relative z-10 w-full max-w-md p-8 bg-black bg-opacity-75 rounded-md">
+      <div className="relative z-10 w-full max-w-md p-8 bg-black rounded-md">
         <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>
