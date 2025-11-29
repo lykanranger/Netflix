@@ -97,7 +97,7 @@ The application should now be running on http://localhost:5173/.
 
 | :---: | :---: |
 
-| ![Home Page](./home.png) | ![Search Results Page](./search.png) |
+| ![Home Page](./home.png) | ![Search Results Page](./netflix.png) |
 
 
 
