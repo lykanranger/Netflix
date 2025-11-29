@@ -60,13 +60,11 @@ export default function MyList() {
       <Navbar />
 
       <div className="pt-24 px-4 md:px-12 pb-12">
-        <h1 className="text-white text-3xl md:text-4xl font-bold mb-8">My List</h1>
-
         {myList.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-20">
-            <p className="text-neutral-400 text-xl mb-4">Your list is empty</p>
+            <p className="text-neutral-400 text-xl mb-4">Your library is empty</p>
             <p className="text-neutral-500 text-center max-w-md">
-              Add movies and shows to your list by clicking the plus icon when viewing content details.
+              Add movies and shows to your libraray by clicking the plus icon when viewing content details.
             </p>
           </div>
         ) : (

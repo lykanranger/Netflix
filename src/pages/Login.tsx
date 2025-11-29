@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+// Import the image from your assets folder
+// Assuming structure is src/pages/Login.tsx and src/assets/bgimage.jpg
+import bgImage from '../assets/bgimage.jpg';
 
 export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -33,18 +36,22 @@ export default function Login() {
 
   return (
     <div className="min-h-screen bg-black relative flex items-center justify-center">
+      
+      {/* BACKGROUND IMAGE CONTAINER */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundColor: 'black',
+          // Use the imported variable inside `url(...)`
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.5,
+          opacity: 0.5, // Darkens the image so text is readable
         }}
       />
 
+      {/* LOGIN FORM CONTAINER */}
       <div className="relative z-10 w-full max-w-md p-8 bg-black bg-opacity-75 rounded-md">
-        <h1 className="text-white text-3xl font-bold mb-8">
+        <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>
 
@@ -87,7 +94,7 @@ export default function Login() {
         </form>
 
         <div className="mt-4 text-neutral-400 text-sm">
-          {isSignUp ? 'Already have an account?' : 'New to Netflix Clone?'}{' '}
+          {isSignUp ? 'Already have an account?' : 'New to Netflix?'}{' '}
           <button
             onClick={() => setIsSignUp(!isSignUp)}
             className="text-white hover:underline"
