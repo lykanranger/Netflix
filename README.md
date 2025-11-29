@@ -1,3 +1,5 @@
+![Home Page](./home.png)
+
 Netflix Clone - A Cinematic Streaming Experience
 
 A visually stunning and responsive Netflix clone that simulates a premium streaming service experience. This application features secure user authentication, profile management, dynamic content browsing, and a custom "Who's Watching?" profile selection interface, all wrapped in a sleek, dark-themed UI.
@@ -91,20 +93,15 @@ The application should now be running on http://localhost:5173/.
 
 🖼️ Screenshots
 
-Login Page
+| Home Page | Search Results |
 
-Profile Selection
+| :---: | :---: |
 
-
-
-
-
-Browse Page
-
-Mobile View
+| ![Home Page](./home.png) | ![Search Results Page](./search.png) |
 
 
 
+---
 
 
 ❤️ Credits
