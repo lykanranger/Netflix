@@ -8,7 +8,7 @@ export default function LoadingSpinner() {
         <img 
           src={netflixLogo} 
           alt="Netflix" 
-          className="mt-8 h-8 w-auto object-contain animate-pulse" 
+          className="mt-8 h-8 w-auto object-contain" 
         />
       </div>
     </div>
