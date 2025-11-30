@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { Search, User, ChevronDown, LogOut, Settings } from 'lucide-react';
+import netflixLogo from '../assets/netflix-logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,11 +43,16 @@ export default function Navbar() {
     >
       <div className="flex items-center justify-between px-4 md:px-12 py-4">
         <div className="flex items-center gap-2 md:gap-8">
+          {/* Logo */}
           <button
             onClick={() => navigate('/browse')}
-            className="text-red-600 text-2xl md:text-3xl font-bold tracking-wider mr-2"
+            className="mr-2 focus:outline-none"
           >
-            NETFLIX
+            <img 
+              src={netflixLogo} 
+              alt="Netflix" 
+              className="h-6 md:h-6 object-contain"
+            />
           </button>
 
           <div className="flex items-center gap-3 md:gap-6 text-sm md:text-base">
