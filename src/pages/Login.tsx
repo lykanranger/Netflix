@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import bgImage from '../assets/bgimage.jpg';
+import netflixLogo from '../assets/netflix-logo.png';
 
 export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -33,9 +34,9 @@ export default function Login() {
   };
 
   return (
-    // FIX: Increased padding-x (px-6) to ensure the box doesn't touch screen edges on mobile
     <div className="min-h-screen bg-black relative flex items-center justify-center px-6">
       
+      {/* Background Image */}
       <div
         className="absolute inset-0 z-0"
         style={{
@@ -46,7 +47,14 @@ export default function Login() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-md p-8 bg-black rounded-md">
+      {/* Netflix Logo - Positioned Top Center */}
+      <img
+        src={netflixLogo}
+        alt="Netflix"
+        className="absolute top-4 left-1/2 -translate-x-1/2 md:top-8 h-12 w-auto z-20 object-contain"
+      />
+
+      <div className="absolute z-10 w-full max-w-md p-8 bg-black/80 rounded-md">
         <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>
