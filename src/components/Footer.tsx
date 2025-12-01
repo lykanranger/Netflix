@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Links Columns */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-12 gap-y-8 text-sm w-full md:w-auto">
+          <div className="grid grid-cols-3 sm:grid-cols-3 gap-x-12 gap-y-8 text-sm w-full md:w-auto">
             {/* EXPLORE */}
             <div>
               <h3 className="text-[#666] text-[13px] font-medium uppercase tracking-wider mb-4">EXPLORE</h3>
@@ -93,10 +93,12 @@ const Footer: React.FC = () => {
         {/* Bottom Section: Centered Credits */}
         <div className="w-full text-center mt-8 pt-8 border-t border-[#333]">
           <p className="text-xs text-[#b3b3b3]">
-            Netflix by Karun ❤️ &copy; 2025. All rights reserved.
+            Netflix by Karun ❤️
+          </p>
+          <p className="text-xs text-[#b3b3b3] mt-2">
+            &copy; 2025. All rights reserved.
           </p>
         </div>
-
       </div>
     </footer>
   );
