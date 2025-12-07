@@ -39,7 +39,6 @@ const Footer: React.FC = () => {
                 defaultValue="en"
               >
                 <option value="en">English</option>
-                <option value="hi">Hindi</option>
               </select>
             </div>
           </div>
