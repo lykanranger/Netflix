@@ -54,7 +54,7 @@ export default function Login() {
         className="absolute top-4 left-1/2 -translate-x-1/2 md:top-8 h-12 w-auto z-20 object-contain"
       />
 
-      <div className="relative z-10 w-full max-w-md p-8 bg-black rounded-md">
+      <div className="relative z-10 w-full max-w-md p-8 bg-black/80 rounded-md">
         <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>
