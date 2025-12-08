@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import bgImage from '../assets/bgimage.jpg';
 import netflixLogo from '../assets/netflix-logo.png';
 
 export default function Login() {
@@ -34,27 +33,19 @@ export default function Login() {
   };
 
   return (
+    // Main container has bg-black for the plain black background
     <div className="min-h-screen bg-black relative flex items-center justify-center px-6">
       
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          opacity: 0.5,
-        }}
-      />
-
       {/* Netflix Logo - Positioned Top Center */}
       <img
         src={netflixLogo}
         alt="Netflix"
-        className="absolute top-4 left-1/2 -translate-x-1/2 md:top-8 h-12 w-auto z-20 object-contain"
+        className="absolute top-10 left-1/2 -translate-x-1/2 md:top-8 h-12 w-auto z-20 object-contain"
       />
 
-      <div className="relative z-10 w-full max-w-md p-8 bg-black/80 rounded-md">
+      {/* Form Container Changes:
+      */}
+      <div className="relative z-10 w-full max-w-md p-8 bg-black/80 rounded-md border-4 border-white">
         <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>
