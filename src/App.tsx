@@ -14,7 +14,9 @@ import Search from './pages/Search';
 
 const AppLayout = () => {
   const location = useLocation();
-  const showFooter = location.pathname !== '/login';
+  
+  // Update logic: Hide footer on login AND any path starting with /profiles
+  const showFooter = location.pathname !== '/login' && !location.pathname.startsWith('/profiles');
 
   return (
     <div className="flex flex-col min-h-screen bg-black">

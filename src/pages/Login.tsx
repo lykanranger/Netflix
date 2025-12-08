@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-// Import the image from your assets folder
-// Assuming structure is src/pages/Login.tsx and src/assets/bgimage.jpg
 import bgImage from '../assets/bgimage.jpg';
+import netflixLogo from '../assets/netflix-logo.png';
 
 export default function Login() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -35,22 +34,27 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen bg-black relative flex items-center justify-center">
+    <div className="min-h-screen bg-black relative flex items-center justify-center px-6">
       
-      {/* BACKGROUND IMAGE CONTAINER */}
+      {/* Background Image */}
       <div
         className="absolute inset-0 z-0"
         style={{
-          // Use the imported variable inside `url(...)`
           backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          opacity: 0.5, // Darkens the image so text is readable
+          opacity: 0.5,
         }}
       />
 
-      {/* LOGIN FORM CONTAINER */}
-      <div className="relative z-10 w-full max-w-md p-8 bg-black bg-opacity-75 rounded-md">
+      {/* Netflix Logo - Positioned Top Center */}
+      <img
+        src={netflixLogo}
+        alt="Netflix"
+        className="absolute top-4 left-1/2 -translate-x-1/2 md:top-8 h-12 w-auto z-20 object-contain"
+      />
+
+      <div className="relative z-10 w-full max-w-md p-8 bg-black rounded-md">
         <h1 className="text-white text-3xl font-bold mb-8 text-center">
           {isSignUp ? 'Sign Up' : 'Sign In'}
         </h1>

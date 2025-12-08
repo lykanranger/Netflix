@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-// Removed 'Bell' from the imports
 import { Search, User, ChevronDown, LogOut, Settings } from 'lucide-react';
+import netflixLogo from '../assets/netflix-logo.png';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -42,88 +42,93 @@ export default function Navbar() {
       }`}
     >
       <div className="flex items-center justify-between px-4 md:px-12 py-4">
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-2 md:gap-8">
+          {/* Logo */}
           <button
             onClick={() => navigate('/browse')}
-            className="text-red-600 text-2xl md:text-3xl font-bold tracking-wider"
+            className="mr-2 focus:outline-none"
           >
-            NETFLIX
+            <img 
+              src={netflixLogo} 
+              alt="Netflix" 
+              className="h-6 md:h-6 object-contain"
+            />
           </button>
 
-          <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-3 md:gap-6 text-sm md:text-base">
             <button
               onClick={() => navigate('/browse')}
-              className="text-white hover:text-neutral-300 transition-colors"
+              className="text-white hover:text-neutral-300 transition-colors font-medium"
             >
               Home
             </button>
             <button
               onClick={() => navigate('/my-list')}
-              className="text-white hover:text-neutral-300 transition-colors"
+              className="text-white hover:text-neutral-300 transition-colors font-medium"
             >
               Library
             </button>
           </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           {showSearch ? (
             <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Titles, people, genres"
-                className="bg-black border border-white text-white px-4 py-1 pl-10 w-64 focus:outline-none"
+                placeholder="Search"
+                className="bg-black border border-white text-white text-sm px-3 py-1 pl-8 w-32 md:w-64 focus:outline-none rounded-sm transition-all"
                 autoFocus
                 onBlur={() => !searchQuery && setShowSearch(false)}
               />
-              <Search size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-white" />
+              <Search size={16} className="absolute left-2 top-1/2 -translate-y-1/2 text-white" />
             </form>
           ) : (
             <button
               onClick={() => setShowSearch(true)}
               className="text-white hover:text-neutral-300 transition-colors"
             >
-              <Search size={24} />
+              <Search size={22} />
             </button>
           )}
-
-          {/* Bell Icon Button was removed here */}
 
           <div className="relative">
             <button
               onClick={() => setShowProfileMenu(!showProfileMenu)}
-              className="flex items-center gap-2 text-white hover:text-neutral-300 transition-colors"
+              className="flex items-center gap-1 md:gap-2 text-white hover:text-neutral-300 transition-colors"
             >
-              <div className="w-8 h-8 bg-black-600 rounded flex items-center justify-center">
-                <User size={20} />
+              <div className="w-8 h-8 rounded overflow-hidden border border-transparent hover:border-white transition-all">
+                <div className="w-full h-full bg-black-600 flex items-center justify-center">
+                   <User size={18} />
+                </div>
               </div>
               <ChevronDown
-                size={20}
-                className={`transition-transform ${showProfileMenu ? 'rotate-180' : ''}`}
+                size={16}
+                className={`hidden md:block transition-transform ${showProfileMenu ? 'rotate-180' : ''}`}
               />
             </button>
 
             {showProfileMenu && (
               <div className="absolute right-0 mt-2 w-48 bg-black bg-opacity-95 border border-neutral-700 rounded shadow-lg">
                 <div className="p-2">
-                  <div className="px-4 py-2 text-white text-sm border-b border-neutral-700">
-                    {profile?.name}
+                  <div className="px-4 py-2 text-white text-sm border-b border-neutral-700 font-bold">
+                    {profile?.name || 'User'}
                   </div>
                   <button
                     onClick={() => {
                       navigate('/profiles');
                       setShowProfileMenu(false);
                     }}
-                    className="w-full px-4 py-2 text-left text-white hover:bg-neutral-800 transition-colors flex items-center gap-2"
+                    className="w-full px-4 py-3 text-left text-sm text-neutral-300 hover:text-white hover:bg-neutral-800 transition-colors flex items-center gap-2"
                   >
                     <Settings size={16} />
                     Switch Profiles
                   </button>
                   <button
                     onClick={handleSignOut}
-                    className="w-full px-4 py-2 text-left text-white hover:bg-neutral-800 transition-colors flex items-center gap-2"
+                    className="w-full px-4 py-3 text-left text-sm text-neutral-300 hover:text-white hover:bg-neutral-800 transition-colors flex items-center gap-2"
                   >
                     <LogOut size={16} />
                     Sign Out
