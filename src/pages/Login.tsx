@@ -26,7 +26,12 @@ export default function Login() {
         navigate('/profiles');
       }
     } catch (err: unknown) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
+      const message = err instanceof Error ? err.message : 'An error occurred';
+      if (message === 'Failed to fetch') {
+        setError('Could not connect to the server. Your Supabase project might be paused. Please check the Supabase Dashboard to restore it.');
+      } else {
+        setError(message);
+      }
     } finally {
       setLoading(false);
     }
